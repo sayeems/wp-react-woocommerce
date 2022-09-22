@@ -1,17 +1,16 @@
-import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
-import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import {useState, useEffect} from 'react';
-import { create } from '@mui/material/styles/createTransitions';
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import TextField from "@mui/material/TextField";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import { useState } from "react";
 
-export default function AddressForm({updateData,data}) {
-  const[create, setCreate] = useState(false);
+export default function AddressForm({ updateData, data }) {
+  const [create, setCreate] = useState(false);
   const handleCreate = (e) => {
     setCreate(e.target.checked);
     updateData(e.target.name, e.target.checked);
-  }
+  };
   return (
     <>
       <Typography variant="h6" gutterBottom>
@@ -28,7 +27,7 @@ export default function AddressForm({updateData,data}) {
             autoComplete="given-name"
             variant="standard"
             value={data.first_name}
-            onChange={(e)=>updateData(e.target.name, e.target.value)}
+            onChange={(e) => updateData(e.target.name, e.target.value)}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -41,7 +40,7 @@ export default function AddressForm({updateData,data}) {
             autoComplete="family-name"
             variant="standard"
             value={data.last_name}
-            onChange={(e)=>updateData(e.target.name, e.target.value)}
+            onChange={(e) => updateData(e.target.name, e.target.value)}
           />
         </Grid>
         <Grid item xs={12}>
@@ -54,7 +53,7 @@ export default function AddressForm({updateData,data}) {
             autoComplete="shipping address-line1"
             variant="standard"
             value={data.address_1}
-            onChange={(e)=>updateData(e.target.name, e.target.value)}
+            onChange={(e) => updateData(e.target.name, e.target.value)}
           />
         </Grid>
         <Grid item xs={12}>
@@ -66,7 +65,7 @@ export default function AddressForm({updateData,data}) {
             autoComplete="shipping address-line2"
             variant="standard"
             value={data.address_2}
-            onChange={(e)=>updateData(e.target.name, e.target.value)}
+            onChange={(e) => updateData(e.target.name, e.target.value)}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -79,7 +78,7 @@ export default function AddressForm({updateData,data}) {
             autoComplete="shipping address-level2"
             variant="standard"
             value={data.city}
-            onChange={(e)=>updateData(e.target.name, e.target.value)}
+            onChange={(e) => updateData(e.target.name, e.target.value)}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -90,7 +89,7 @@ export default function AddressForm({updateData,data}) {
             fullWidth
             variant="standard"
             value={data.state}
-            onChange={(e)=>updateData(e.target.name, e.target.value)}
+            onChange={(e) => updateData(e.target.name, e.target.value)}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -103,7 +102,7 @@ export default function AddressForm({updateData,data}) {
             autoComplete="shipping postal-code"
             variant="standard"
             value={data.postcode}
-            onChange={(e)=>updateData(e.target.name, e.target.value)}
+            onChange={(e) => updateData(e.target.name, e.target.value)}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -116,7 +115,7 @@ export default function AddressForm({updateData,data}) {
             autoComplete="shipping country"
             variant="standard"
             value={data.country}
-            onChange={(e)=>updateData(e.target.name, e.target.value)}
+            onChange={(e) => updateData(e.target.name, e.target.value)}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -129,7 +128,7 @@ export default function AddressForm({updateData,data}) {
             autoComplete="Your email address"
             variant="standard"
             value={data.email}
-            onChange={(e)=>updateData(e.target.name, e.target.value)}
+            onChange={(e) => updateData(e.target.name, e.target.value)}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -142,52 +141,51 @@ export default function AddressForm({updateData,data}) {
             autoComplete="Your mobile number"
             variant="standard"
             defaultValue={data.phone}
-            onChange={(e)=>updateData(e.target.name, e.target.value)}
+            onChange={(e) => updateData(e.target.name, e.target.value)}
           />
         </Grid>
-        {
-          data.sign == "false" ? 
+        {data.sign == "false" ? (
           <Grid item xs={12} sm={12}>
-          <Grid item xs={12}>
-            <FormControlLabel
-              control={<Checkbox color="primary" name="createAccount" />}
-              label="Create my account"
-              onChange={(e)=>handleCreate(e)}
-            />
+            <Grid item xs={12}>
+              <FormControlLabel
+                control={<Checkbox color="primary" name="createAccount" />}
+                label="Create my account"
+                onChange={(e) => handleCreate(e)}
+              />
+            </Grid>
           </Grid>
-        </Grid>
-        :
-        ""
-        }
-        {create && <>
-        
-          <Grid item xs={12} sm={6}>
-            <TextField
-              required
-              id="username"
-              name="username"
-              label="Username"
-              fullWidth
-              autoComplete=""
-              variant="standard"
-              onChange={(e)=>updateData(e.target.name, e.target.value)}
-            />
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <TextField
-              required
-              id="password"
-              name="password"
-              label="Password"
-              type="password"
-              fullWidth
-              autoComplete=""
-              variant="standard"
-              onChange={(e)=>updateData(e.target.name, e.target.value)}
-            />
-          </Grid>
-        
-        </>}
+        ) : (
+          ""
+        )}
+        {create && (
+          <>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                required
+                id="username"
+                name="username"
+                label="Username"
+                fullWidth
+                autoComplete=""
+                variant="standard"
+                onChange={(e) => updateData(e.target.name, e.target.value)}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                required
+                id="password"
+                name="password"
+                label="Password"
+                type="password"
+                fullWidth
+                autoComplete=""
+                variant="standard"
+                onChange={(e) => updateData(e.target.name, e.target.value)}
+              />
+            </Grid>
+          </>
+        )}
       </Grid>
     </>
   );

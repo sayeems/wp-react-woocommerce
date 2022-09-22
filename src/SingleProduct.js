@@ -1,27 +1,4 @@
-import {
-  Grid,
-  Typography,
-  Container,
-  Paper,
-  Divider,
-  IconButton,
-  Button,
-  Stack,
-  Badge,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  Card,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Skeleton,
-  Box,
-  Rating,
-} from "@mui/material";
-import { FormatListBulleted, Category } from "@mui/icons-material";
+import { Grid, Typography, Button, Skeleton, Box, Rating } from "@mui/material";
 import axios from "axios";
 import { useState, useEffect, useContext } from "react";
 import { CartContext } from "./App";
